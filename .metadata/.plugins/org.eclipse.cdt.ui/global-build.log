@@ -1,0 +1,26 @@
+23:22:04 **** Incremental Build of configuration Debug for project lab5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/command_parser.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/command_parser.d" -MT"Core/Src/command_parser.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/command_parser.o"
+arm-none-eabi-gcc "../Core/Src/uart_communication.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/uart_communication.d" -MT"Core/Src/uart_communication.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/uart_communication.o"
+../Core/Src/command_parser.c: In function 'command_parser_fsm':
+../Core/Src/command_parser.c:38:16: warning: array subscript has type 'char' [-Wchar-subscripts]
+   38 |    command_data[index_commmand] = temp;
+      |                ^
+../Core/Src/command_parser.c: In function 'clerCommand':
+../Core/Src/command_parser.c:69:15: warning: array subscript has type 'char' [-Wchar-subscripts]
+   69 |   command_data[i] = (char)0;
+      |               ^
+arm-none-eabi-gcc -o "lab5.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\MCU_LAB\lab5\lab5\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab5.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab5.elf
+ 
+arm-none-eabi-size   lab5.elf 
+arm-none-eabi-objdump -h -S  lab5.elf  > "lab5.list"
+arm-none-eabi-objcopy  -O ihex  lab5.elf  "lab5.hex"
+   text	   data	    bss	    dec	    hex	filename
+  16212	    124	   1972	  18308	   4784	lab5.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab5.hex
+ 
+Finished building: lab5.list
+ 

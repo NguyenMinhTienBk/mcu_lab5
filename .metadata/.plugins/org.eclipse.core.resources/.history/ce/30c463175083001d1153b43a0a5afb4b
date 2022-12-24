@@ -1,0 +1,23 @@
+/*
+ * uart_communication.c
+ *
+ *  Created on: Dec 24, 2022
+ *      Author: pc
+ */
+#include "uart_communication.h"
+
+enum CommuanicationState{Wait_RST, Send_ADC, Wait_ADC};
+enum CommuanicationState commu_state = Wait_RST;
+
+uart_communication_fsm(){
+
+	switch (commu_state){
+	case Wait_RST:
+		break;
+	case Send_ADC:
+		break;
+	case Wait_ADC:
+		break;
+
+	}
+}
